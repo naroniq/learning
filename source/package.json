@@ -1,0 +1,36 @@
+{
+  "name": "monik-learning",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "callen & monik",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.5.4",
+    "cssnano": "^3.9.1",
+    "grunt": "1.0.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-fontello-svg": "^0.1.0",
+    "grunt-htmlhint": "^0.9.13",
+    "grunt-newer": "^1.2.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^2.0.0",
+    "imagemin-jpegoptim": "~4.1.0",
+    "imagemin-pngquant": "^4.2.2",
+    "jit-grunt": "^0.10.0",
+    "jshint-stylish": "^2.2.1",
+    "pixrem": "^3.0.2",
+    "time-grunt": "^1.4.0"
+  },
+  "dependencies": {
+    "bs-console-qrcode": "^1.0.0",
+    "grunt-contrib-htmlmin": "^2.3.0",
+    "grunt-contrib-uglify": "^2.3.0",
+    "grunt-processhtml": "^0.4.1",
+    "grunt-svgstore": "^1.0.0"
+  }
+}

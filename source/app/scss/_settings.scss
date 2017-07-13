@@ -1,0 +1,48 @@
+// IMPORT NORMALIZE & GLOBAL
+@import 'settings/global'; //vars
+@import 'base/normalize';
+@import 'base/global';
+
+// IMPORT & INCLUDE VENDOR - FOUNDATION
+@import '../vendors/foundation-6.3.0/scss/settings-foundation';
+@import '../vendors/foundation-6.3.0/scss/foundation';
+
+// IMPORT ENV VARIABLES
+@import 'settings/palette';
+@import 'settings/variables';
+
+// IMPORT BASE
+@import 'base/fonts';
+@import 'base/typography';
+@import 'base/icons';
+
+// INCLUDE FOUNDATION GRID
+@include foundation-grid;
+
+// IMPORT ANIMATIONS
+// @import 'base/animations';
+
+// IMPORT LAYOUT
+// @import 'layout/header';
+@import 'layout/footer';
+@import 'layout/containers';
+
+// IMPORT PAGES
+//@import 'pages/home';
+
+// IMPORT COMPONENTS
+@import 'components/buttons';
+@import 'components/about';
+@import 'components/contact';
+@import 'components/portfolio';
+@import 'components/showcase';
+
+
+// IMPORT ANY OTHER VENDORS
+
+
+// IMPORT UTILS AND HELPERS
+// @import 'utils/accessibility';
+@import 'utils/helpers';
+@import 'utils/images';
+@import 'utils/palette-classes'

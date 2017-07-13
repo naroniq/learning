@@ -1,0 +1,132 @@
+.portfolio {
+  padding: $pgs-m 0;
+
+  @include breakpoint(medium){
+    padding: $pgs-s $pgs-s 0;
+  }
+
+  @include breakpoint(xxlarge){
+    padding: $pgs-s 0 0 $pgs-m;
+  }
+
+  h2 {
+    font-size: rem-calc(24);
+    padding-left: $pgs-s;
+    padding-bottom: $pgs-m;
+
+    @include breakpoint(medium){
+      padding-bottom: 0;
+    }
+
+    @include breakpoint(xxlarge){
+      padding-left: 0;
+      padding-bottom: $pgs-s;
+    }
+
+  }
+}
+
+.portfolio__items {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+
+  li {
+    width: 25%;
+    height: auto;
+    padding-bottom: $pgs-m;
+    padding-right: $pgs-m;
+    overflow: hidden;
+
+    @include breakpoint(xxlarge){
+      width: calc(100% / 4);
+    }
+
+    @include breakpoint(xlarge only){
+      width: calc(100% / 3);
+      padding: $pgs-s;
+    }
+
+    @include breakpoint(large down){
+      width: calc(100% / 2);
+      min-width: 270px;
+      align-self: center;
+      padding: $pgs-s;
+    }
+
+    @media screen and (max-width: 895px) {
+      width: 100%;
+      transition: all .3s $transition-cubic 0s;
+
+      .#{$about-is-collapsed-class} & {
+        width: calc(100% / 2);
+      }
+    }
+
+  }
+
+  a {
+    position: relative;
+    width: 100%;
+    display: block;
+    color: $white;
+    overflow: hidden;
+    border: 1px solid $loblolly;
+
+    .item__overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      background: rgba($black, .8);
+      opacity: 0;
+      transition: opacity .5s ease 0s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include breakpoint(small down){
+
+      }
+
+    }
+
+    &:hover {
+      .item__overlay {
+        opacity: 1;
+      }
+    }
+
+  }
+
+  .overlay {
+    h3 {
+      margin: 0;
+      padding: 0;
+      color: $white;
+      font-weight: 700;
+      font-size: rem-calc(24);
+    }
+
+    .overlay__desc {
+      display: none;
+    }
+
+    .overlay__cat {
+      text-align: right;
+      text-transform: lowercase;
+      color: $alto;
+      font-size: rem-calc(14);
+
+      @include breakpoint(medium down){
+        padding-right: $pgs-m;
+        font-size: rem-calc(12);
+      }
+
+    }
+  }
+
+}

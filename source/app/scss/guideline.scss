@@ -1,0 +1,62 @@
+@import 'settings/palette';
+@import 'settings/variables';
+
+.icons {
+  padding: 40px 0;
+
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $whitesmoke;
+    margin: 10px 0 ;
+
+    li {
+      padding: 10px;
+      text-align: center;
+      width: 150px;
+      border-right: 1px solid $whitesmoke;
+      margin: 10px 0 ;
+      transition: color .3s ease 0s, background .3s ease 0s;
+
+      &:hover {
+        color: $white;
+        background: $endeavour;
+      }
+    }
+
+    span {
+      display: block;
+      font-size: 16px;
+    }
+
+    span[class^="icon-"] {
+      font-size: 2rem;
+    }
+
+  }
+}
+
+.breakpoints {
+  padding: 40px 0;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+
+    tr {
+      border: 1px solid $border-color;
+
+      &:nth-child(2n+1){
+        background: darken($white, 4%);
+      }
+    }
+
+    td {
+      border-left: 1px solid $border-color;
+      padding: 5px 10px;
+      text-align: center;
+    }
+  }
+}

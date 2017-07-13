@@ -1,0 +1,19 @@
+//************************* PALETTE - CLASSES GENERATOR ************************/
+//
+//  1. Social background on hover
+//
+//*****************************************************************************/
+
+// 1. Social background on hover
+// ------------------------------
+
+@each $name, $color in $social {
+    .#{$name}-hbg {
+
+      &:hover,
+      &:focus {
+        background: $color;
+      }
+
+    }
+}

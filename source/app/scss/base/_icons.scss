@@ -1,0 +1,57 @@
+// 1. SVG icons
+// ------------
+.icon-svg {
+  display: inline-flex;
+  align-self: center;
+  position: relative;
+  height: 1em;
+  width: 1em;
+
+  svg {
+    height: 1em;
+    width: 1em;
+  }
+
+  &.icon-svg--baseline {
+    svg {
+      bottom: -0.125em;
+      position: absolute;
+    }
+  }
+
+  &.icon-svg--2x {
+    width: 2em;
+    height: 2em;
+
+    svg {
+      width: 2em;
+      height: 2em;
+    }
+  }
+}
+
+
+// 2. SVG icons group
+// ------------------
+.icons__group {
+  display: flex;
+
+  a {
+    width: $icon-size;
+    height: $icon-size;
+    display: block;
+    font-size: rem-calc(24);
+    border-left: 1px solid $border-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon-linkedin {
+      font-size: rem-calc(20);
+    }
+  }
+
+  &.icons__group--right {
+    justify-content: flex-end;
+  }
+}

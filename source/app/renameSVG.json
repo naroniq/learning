@@ -1,0 +1,8 @@
+{
+  "left-open"           :   "arrow-left",
+  "right-open"          :   "arrow-right",
+  "cancel"              :   "close",
+  "resize-full"         :   "fullscreen-on",
+  "resize-small"        :   "fullscreen-off",
+  "angle-double-left"   :   "collapse"
+}

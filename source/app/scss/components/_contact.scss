@@ -1,0 +1,99 @@
+.contact {
+  width: 100%;
+  border-top: 1px solid $border-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: flex-end;
+  transform: translate3d(0,0,0);
+  transition: transform .3s $transition-cubic 0s;
+
+  h2 {
+    padding-left: $pgs-m;
+    //font-size: rem-calc(16);
+  }
+
+  .icons__group {
+
+    a {
+      color: $icon-color;
+
+      &:hover,
+      &:focus {
+        color: $icon-color-hover;
+        background: $icon-background-hover;
+        transition: $transition-cbg;
+      }
+    }
+
+  }
+
+  @include breakpoint(medium){
+
+    .#{$about-is-collapsed-class} & {
+      transform: translate3d(-$about-width-expanded, 0, 0);
+
+      .icons__group {
+        a {
+          width: 100%;
+          border-top: 1px solid $border-color;
+        }
+      }
+
+    }
+
+    .#{$about-is-transitionend-class} & {
+      display: block;
+      transform: translate3d(0, 0, 0);
+      border-top: 0;
+
+      h2 {
+        transform: translate3d(-$about-width-expanded,0,0);
+      }
+
+      .icons__group {
+        width: 100%;
+        display: block;
+      }
+
+    }
+
+  }
+
+}
+
+// .contact {
+//   transform: translate3d(0,0,0);
+//   transition: transform .3s $transition-cubic 0s;
+//
+//   h2 {
+//     display: inline-block;
+//     padding-left: $pgs-m;
+//     font-size: rem-calc(16);
+//   }
+//
+//   .icons__group {
+//     display: inline-flex;
+//     transform: translate3d(0, 0, 0);
+//     transition: transform .3s $transition-cubic 0.3s;
+//
+//   }
+//
+//
+//   .#{$about-is-transitionend-class} & {
+//     display: block;
+//     transform: translate3d(0, 0, 0);
+//     border-top: 0;
+//
+//     h2 {
+//       transform: translate3d(-$about-width-expanded,0,0);
+//     }
+//
+//     .icons__group {
+//       width: 100%;
+//       display: block;
+//     }
+//
+//   }
+//
+// }

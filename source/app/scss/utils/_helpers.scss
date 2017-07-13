@@ -1,0 +1,71 @@
+/****************************** TABLE OF CONTENTS ******************************/
+//
+//  1. Classes for elements visible only for assistive technology and focus.
+//  2. Disable outline when mouse input is detected.
+//
+/*******************************************************************************/
+
+// 1. Classes for elements visible only for assistive technology and focus.
+// Makes an element visually hidden, but still accessible to keyboards and assistive devices.
+.show-for-sr,
+.show-on-focus {
+  @include element-invisible;
+}
+
+.show-on-focus {
+  &:active,
+  &:focus {
+    @include element-invisible-off;
+  }
+}
+
+// 2. Disable outline when mouse input is detected.
+// Removes the focus ring around an element when a mouse input is detected.
+.mouse-outline-off {
+  @include disable-mouse-outline;
+}
+
+
+// 3. Icons transform
+// ------------------
+
+.icon--90cw {
+  transform: rotate(90deg);
+}
+
+.icon--180cw {
+  .icon-svg {
+    transform: rotate(180deg);
+  }
+
+  &:hover {
+    .icon-svg {
+      transform: rotate(-180deg);
+    }
+  }
+
+}
+
+.icon--90ccw {
+  transform: rotate(-90deg);
+}
+
+
+.hide--xlarge {
+  @include breakpoint(xlarge up) {
+    display:none;
+  }
+}
+
+.xxlarge__no-gutter {
+  @include breakpoint(xxlarge up) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.writing-mode--vertical {
+  @include breakpoint(medium){
+    writing-mode: vertical-lr;
+  }
+}

@@ -1,0 +1,194 @@
+.btn {
+  cursor: pointer;
+  border: 0;
+  display: block;
+  padding: 0;
+}
+
+.btn--nav {
+  width: $pgs-xl;
+  height: $pgs-xl;
+  font-size: rem-calc(24);
+  color: $showcase-icon-c;
+  background: $showcase-icon-bg;
+  border: 1px solid $showcase-border-c;
+  outline: 0;
+  transition: color .3s ease 0s, background .3s ease 0s;
+
+  span { // workaround related with: http://stackoverflow.com/a/35466231
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover,
+  &:focus {
+    color: $showcase-icon-c-hover;
+    background: $showcase-icon-bg-hover;
+
+    .icon-svg {
+      transform: rotate(360deg);
+    }
+
+  }
+}
+
+.btn--prev svg {
+  margin: 1px 0 0 -3px;
+}
+
+.btn--next svg {
+  margin: 1px 0 0 3px;
+}
+
+
+.btn--close {
+  width: $icon-size;
+  height: $icon-size;
+  font-size: rem-calc(24);
+  color: $showcase-icon-c;
+  background: $showcase-icon-bg;
+  border-left: 1px solid $showcase-border-c;
+  border-bottom: 1px solid $showcase-border-c;
+  position: absolute;
+  top: 0;
+  right: 0;
+  outline: 0;
+  z-index: 30;
+  transition: color .3s ease 0s, background .3s ease 0s;
+
+  @include breakpoint(medium){
+    width: $pgs-xl;
+    height: $pgs-xl;
+  }
+
+  span { // workaround related with: http://stackoverflow.com/a/35466231
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover,
+  &:focus {
+    color: $showcase-icon-c-hover;
+    background: $showcase-icon-bg-hover;
+
+    .icon-svg {
+      transform: rotate(360deg);
+    }
+
+  }
+}
+
+.btn--collapse {
+  width: $icon-size;
+  height: $icon-size;
+  font-size: rem-calc(24);
+  color: $icon-collapse-c;
+  background: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: 0;
+  //transform: translate3d(-20px,0,0);
+  z-index: 40;
+  transition: all .3s $transition-cubic 0s;
+
+  @include breakpoint(small down){
+    transform: translate3d(calc(100vw - #{$icon-px} - 8px), 16px, 0);
+
+    .#{$showcase-is-open-class} & {
+      transform: translate3d(0, 0, 0);
+      color: $showcase-icon-c;
+      background: $showcase-icon-bg;
+    }
+  }
+
+  @include breakpoint(medium){
+    transform: translate3d($btn-collapse-medium,0,0);
+
+    .#{$about-is-collapsed-class} & {
+      width: $about-width-collapsed;
+      border-bottom: 1px solid $border-color;
+      transform: translate3d(0,0,0);
+    }
+  }
+
+  .icon--collapse,
+  .icon--menu { // workaround related with: http://stackoverflow.com/a/35466231
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon--collapse {
+    @include breakpoint(small down) {
+      display: none;
+    }
+  }
+
+  .icon--menu {
+    @include breakpoint(medium) {
+      display: none;
+    }
+
+    @include breakpoint(small down) {
+
+      .show--on-expanded,
+      .hide--on-expanded {
+        width: $icon-px;
+        height: $icon-px;
+        transition: opacity .3s $transition-cubic 0s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid $loblolly;
+
+        .#{$showcase-is-open-class} & {
+          border: 1px solid $showcase-border-c;
+        }
+      }
+
+      .show--on-expanded {
+        opacity: 1;
+
+        .#{$about-is-collapsed-class} & {
+          opacity: 0;
+        }
+      }
+
+      .hide--on-expanded {
+        opacity: 0;
+
+        .#{$about-is-collapsed-class} & {
+          opacity: 1;
+        }
+      }
+
+    }
+
+  }
+
+  .icon-svg {
+    transition: transform .3s $transition-cubic 0s;
+  }
+
+  &:hover {
+    color: $icon-collapse-c-hover;
+
+    .icon-svg {
+      transform: rotate(360deg);
+    }
+
+    .#{$showcase-is-open-class} & {
+      @include breakpoint(small down) {
+        color: $showcase-icon-c-hover;
+        background: $showcase-icon-bg-hover;
+      }
+    }
+
+  }
+}

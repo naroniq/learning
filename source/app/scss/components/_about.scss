@@ -1,0 +1,71 @@
+// 1. About
+// --------
+.about {
+  width: 100%;
+  padding: $pgs-l;
+  transition: padding .3s $transition-cubic 0s;
+
+  .about__title,
+  .about__text {
+    @include breakpoint(medium){
+      transform: translate3d(0, 0, 0);
+      transition: transform .3s $transition-cubic 0s;
+    }
+  }
+
+  .about__title {
+    padding: $pgs-m 0;
+    text-align: center;
+
+    h1 {
+      display: inline-block;
+    }
+  }
+
+  @include breakpoint(medium){
+    .#{$about-is-collapsed-class} & {
+      padding: $pgs-s;
+
+      .about__title,
+      .about__text {
+        transform: translate3d(-$about-width-expanded, 0, 0);
+      }
+
+      .about__title{
+        h1 {
+          animation: changeWritingMode .3s .3s 1 alternate forwards;
+        }
+      }
+
+    }
+
+    .#{$about-is-transitionend-class} & {
+
+      h1 {
+        writing-mode: vertical-lr;
+        white-space: nowrap;
+      }
+
+      .about__text p {
+        display: none;
+      }
+
+    }
+  }
+
+}
+
+@keyframes changeWritingMode {
+  0% {
+    writing-mode: horizontal-tb;
+    transform: translate3d(0,0,0);
+  },
+  50% {
+    writing-mode: vertical-lr;
+    transform: translate3d(0,0,0);
+  },
+  100% {
+    writing-mode: vertical-lr;
+    transform: translate3d($about-width-expanded,0,0);
+  }
+}

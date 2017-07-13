@@ -1,0 +1,53 @@
+//***************************** TABLE OF CONTENTS *****************************/
+//
+//  1. Global defaults
+//    1.1 Global Font Size
+//    1.2 Body Font Stack
+//    1.3 Global Font Weight
+//    1.4 Global Line Height
+//    1.5 Global color
+//    1.6 Global background color
+//    1.7 Global font antialias
+//    1.8 link color
+//      1.8.1 link color hover
+//
+//*****************************************************************************/
+
+// 1. Global defaults
+// ------------------
+
+// 1.1 Global Font Size
+// --------------------
+// Font size attribute applied to `<html>` and `<body>`. We use 100% by default so the value is inherited from the user's browser settings.
+$global-font-size: 100% !default;
+
+// 1.2 Body Font Stack
+// --------------------
+$body-font: 'Open Sans', sans-serif  !default;
+
+// 1.3 Global Font Weight
+// -----------------------
+$global-weight: 400  !default;
+
+// 1.4 Global Line Height
+// -----------------------
+$global-lineheight: normal  !default;
+
+// 1.5 Global color
+// ----------------
+$body-font-color: #373737 !default;
+
+// 1.6 Global background color
+// ---------------------------
+$body-background: #eee !default;
+
+// 1.7 Global font antialias
+// -------------------------
+// Set to `true` to enable antialiased type, using the `-webkit-font-smoothing` and `-moz-osx-font-smoothing` CSS properties.
+$body-antialiased: true  !default;
+
+// 1.8 link color
+$link-color: #3b8dbd !default;
+
+// 1.8.1 link color hover
+$link-color-hover: #d32f2f !default;

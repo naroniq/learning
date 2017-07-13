@@ -1,0 +1,23 @@
+//****************************** TABLE OF CONTENTS ******************************/
+//
+//  1. Footer
+//
+//*******************************************************************************/
+
+// 1. Footer
+// ---------
+.footer {
+  font-weight: 700;
+  text-align: right;
+  font-size: rem-calc(14);
+
+  a {
+    padding: 0 5px 0 5px;
+    color: currentColor;
+
+    &:hover,
+    &:focus {
+      color: $primary-blue;
+    }
+  }
+}

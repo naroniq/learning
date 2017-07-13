@@ -1,0 +1,58 @@
+//***************************** TABLE OF CONTENTS *****************************/
+//
+//  1. Global code structure
+//
+//*****************************************************************************/
+
+// 1. Global code structure
+// ------------------------
+
+html {
+  font-size: $global-font-size;
+  box-sizing: border-box;
+}
+
+// Set box-sizing globally to handle padding and border widths
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// Default body styles
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $body-font;
+  font-weight: $global-weight;
+  line-height: $global-lineheight;
+  color: $body-font-color;
+  background: $body-background;
+
+  @if ($body-antialiased) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+a {
+  color: $link-color;
+  transition: color .3s ease 0s, background .3s ease 0s;
+  outline: 0;
+
+  &:hover,
+  &:focus {
+    color: $link-color-hover;
+  }
+
+  &:before,
+  &:after {
+    transition: color .3s ease 0s, background .3s ease 0s;
+  }
+}
+
+img {
+  // Get rid of gap under images by making them display: inline-block; by default
+  display: inline-block;
+  vertical-align: middle;
+}

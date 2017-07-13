@@ -1,0 +1,147 @@
+// 1. Showcase main element
+// ------------------------
+.showcase {
+  width: 100%;
+  height: 100%;
+  background: $showcase-bg;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: translate3d(100%,0,0);
+  transition: transform .3s $transition-cubic 0s, width .3s $transition-cubic 0s;
+  -webkit-overflow-scrolling: touch;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include breakpoint(xxlarge only){
+    align-content: space-between;
+  }
+
+  // 1.0.1 Showcase when 'is-open' state
+  .#{$showcase-is-open-class} & {
+    transform: translate3d(0,0,0);
+  }
+
+  @include breakpoint(medium){
+    width: calc(100% - #{$about-width-expanded});
+
+    // 1.0.2 Showcase when container has class 'container--is-collapsed'
+    .#{$about-is-collapsed-class} & {
+      width: calc(100% - #{$about-width-collapsed});
+    }
+  }
+
+  // 1.1 Showcase content
+  .showcase__content {
+    width: 100%;
+    padding: $pgs-xl rem-calc(20) 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    @include breakpoint(medium){
+      padding: $pgs-xxl $pgs-l 0;
+    }
+
+    @media screen and (min-width: 896px) and (max-width: 1024px){
+      flex-wrap: wrap;
+      transition: all 0.3s $transition-cubic 0s;
+
+      .#{$about-is-collapsed-class} & {
+        flex-wrap: nowrap;
+      }
+    }
+
+    @include breakpoint(895px down){
+      flex-wrap: wrap;
+    }
+  }
+
+  // 1.1.1 Showcase content items
+  .showcase__items {
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 $pgs-l $pgs-l;
+
+    @include breakpoint(large down){
+      padding: 0 0 $pgs-m;
+    }
+
+    img {
+      border: 1px solid $showcase-border-c;
+    }
+  }
+
+  // 1.1.2 Showcase content description
+  .showcase__desc{
+    width: 100%;
+    max-width: 535px;
+    padding: 0 $pgs-l;
+    color: $showcase-c;
+
+    @include breakpoint(895px down){
+      padding: 0;
+    }
+
+    h3 {
+      font-size: rem-calc(24);
+      padding-bottom: $pgs-m;
+      margin-bottom: $pgs-m;
+      border-bottom: 1px solid $showcase-border-c;
+    }
+  }
+
+  // 1.2 Description content
+  .desc__content {
+    font-size: rem-calc(14);
+    padding-bottom: $pgs-m;
+    margin-bottom: $pgs-m;
+    border-bottom: 1px solid $showcase-border-c;
+
+    ul {
+      list-style: disc inside;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+  }
+
+  // 1.3 Showcase categories
+  .desc__cat {
+    padding-bottom: $pgs-l;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+
+      li {
+        font-size: rem-calc(14);
+        padding: $pgs-s;
+        border: 1px solid $mine-shaft-2nd;
+        color: $showcase-cat-c;
+        margin: $pgs-xs;
+      }
+    }
+  }
+
+  // 1.4 Showcase navigation container
+  .showcase__navs {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 rem-calc(20) rem-calc(20);
+    width: 100%;
+
+    button + button {
+      border-left: 0;
+    }
+
+    @include breakpoint(medium){
+      padding: 0 $pgs-xxl $pgs-xxl;
+    }
+  }
+
+}

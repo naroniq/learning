@@ -1,0 +1,19 @@
+.img--responsive {
+  // Grid defaults to get images and embeds to work properly
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+  display: block;
+}
+
+.img--responsive-vertical {
+  // Grid defaults to get images and embeds to work properly
+  width: auto;
+  max-height: 100%;
+  -ms-interpolation-mode: bicubic;
+  display: block;
+}
+
+.img--rounded {
+  border-radius: 50%;
+}
