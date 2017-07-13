@@ -28,7 +28,7 @@ module.exports = function(grunt) {
               htmlhintrc: '.htmlhintrc'
           },
           dev: {
-              src: ['<%= config.app %>/**/*.html', '!<%= config.temp %>/assets/**']
+              src: ['<%= config.app %>/pages/**/*.html', '!<%= config.temp %>/assets/**']
           },
           dist: {
               src: '<%= config.dist %>/**/*.html'
@@ -277,9 +277,20 @@ module.exports = function(grunt) {
                     'js/**/*'
                 ]
             }]
+          },
+          html: {
+            files: [{
+                expand: true,
+                dot: true,
+                cwd: '<%= config.app %>/pages/',
+                dest: '<%= config.temp %>/',
+                src: [
+                    '**/*'
+                ]
+            }]
           }
 
-      }
+      },
 
       //clean
       clean: {
@@ -303,7 +314,7 @@ module.exports = function(grunt) {
       watch: {
           html: {
               files: ['<%= config.app %>/pages/**/*.html'],
-              tasks: ['htmlhint:dev']
+              tasks: ['htmlhint:dev', 'newer:copy:html']
           },
           sass: {
               files: ['<%= config.app %>/scss/**/*.scss'],
@@ -317,7 +328,27 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.registerTask('default', ['clean:dev', 'htmlhint:dev', 'sass:dev', 'postcss:dev', 'jshint', 'fontello_svg:dev', 'copy:svg', 'svgIconsRename', 'svgstore:dev', 'imagemin:dev', 'copy:dev', 'browserSync', 'watch']);
+    grunt.registerTask('svgIconsRename', 'Rename SVG Icons', function() {
+      var mapping = grunt.file.readJSON('app/renameSVG.json'),
+          location = devPath + '/svg/',
+          prop;
+
+      var rename = function(){
+        return fs.rename(location + prop + '.svg', location + mapping[prop] + '.svg', function(err){
+          if(err){
+            console.log('ERROR: ' +  err);
+          }
+        });
+      };
+
+      for(prop in mapping){
+        if(mapping.hasOwnProperty(prop)){
+          rename();
+        }
+      }
+
+    });
+    grunt.registerTask('default', ['clean:dev', 'htmlhint:dev', 'copy:html', 'sass:dev', 'postcss:dev', 'jshint', 'fontello_svg:dev', 'copy:svg', 'svgIconsRename', 'svgstore:dev', 'imagemin:dev', 'copy:dev', 'browserSync', 'watch']);
     grunt.registerTask('build', ['clean:all', 'pug:dist', 'htmlhint:dist', 'sass:dist', 'postcss:dist', 'jshint', 'fontello_svg:dist', 'copy:svg', 'svgIconsRename', 'svgstore:dist', 'imagemin:dist', 'copy:dist', 'uglify:dist', 'processhtml:dist', 'htmlmin:dist']);
     grunt.registerTask('cleanUp', ['clean:all']);
 };
