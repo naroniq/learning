@@ -1,0 +1,20 @@
+.hero-title{
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero{
+background: rgb(74, 36, 168);
+color: white;
+  .container,
+  .row,
+  .col-md-12{
+    height: 100%;
+  }
+  .hero-header{
+    font-size: 90px;
+    font-weight: 300;
+  }
+}

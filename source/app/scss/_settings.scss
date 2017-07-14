@@ -1,3 +1,4 @@
+@import '../vendors/bootstrap/css/bootstrap.css';
 // IMPORT NORMALIZE & GLOBAL
 @import 'settings/global'; //vars
 @import 'base/normalize';
@@ -10,8 +11,15 @@
 // IMPORT ENV VARIABLES
 @import 'settings/palette';
 @import 'settings/variables';
+// IMPORT LAYOUT
+@import "layout/containers";
+
+//IMPORT PAGES
+@import "pages/hero";
+
 
 // IMPORT BASE
-@import 'base/fonts';
-@import 'base/typography';
+// @import 'base/fonts';
+// @import 'base/typography';
 @import 'base/icons';
+@import 'base/colors';
