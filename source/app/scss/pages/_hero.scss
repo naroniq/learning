@@ -6,7 +6,8 @@
   align-items: center;
 }
 .hero{
-background: rgb(74, 36, 168);
+background: url('../img/luna-bg.png') rgb(74, 36, 168) no-repeat;
+background-size: cover;
 color: white;
   .container,
   .row,
